@@ -1,7 +1,7 @@
 package ingjulianvega.ximic.msscasusystem.exception;
 
 
-import ingjulianvega.ximic.msscasuevidencetype.web.model.ApiError;
+import ingjulianvega.ximic.msscasusystem.web.model.ApiError;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

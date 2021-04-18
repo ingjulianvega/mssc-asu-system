@@ -14,10 +14,8 @@ import java.util.UUID;
 @Builder
 public class System implements Serializable {
 
-    static final long serialVersionUID = -7309482740220635006L;
+    static final long serialVersionUID = -462949395461349890L;
 
-    private UUID patientId;
     private String name;
-    private String observations;
 
 }

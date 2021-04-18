@@ -1,10 +1,11 @@
 package ingjulianvega.ximic.msscasusystem.web.controller;
 
 
-import ingjulianvega.ximic.msscasuevidencetype.services.EvidenceTypeService;
-import ingjulianvega.ximic.msscasuevidencetype.web.model.EvidenceType;
-import ingjulianvega.ximic.msscasuevidencetype.web.model.EvidenceTypeDto;
-import ingjulianvega.ximic.msscasuevidencetype.web.model.EvidenceTypeList;
+
+import ingjulianvega.ximic.msscasusystem.services.SystemService;
+import ingjulianvega.ximic.msscasusystem.web.model.System;
+import ingjulianvega.ximic.msscasusystem.web.model.SystemDto;
+import ingjulianvega.ximic.msscasusystem.web.model.SystemList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,33 +19,33 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class SystemController implements SystemI {
 
-    private final EvidenceTypeService evidenceService;
+    private final SystemService systemService;
 
     @Override
-    public ResponseEntity<EvidenceTypeList> get() {
-        return new ResponseEntity<>(evidenceService.get(), HttpStatus.OK);
+    public ResponseEntity<SystemList> get() {
+        return new ResponseEntity<>(systemService.get(), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<EvidenceTypeDto> getById(@NotNull UUID id) {
-        return new ResponseEntity<>(evidenceService.getById(id), HttpStatus.OK);
+    public ResponseEntity<SystemDto> getById(@NotNull UUID id) {
+        return new ResponseEntity<>(systemService.getById(id), HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<Void> create(@NotNull @Valid EvidenceType evidence) {
-        evidenceService.create(evidence);
+    public ResponseEntity<Void> create(@NotNull @Valid System system) {
+        systemService.create(system);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<Void> updateById(@NotNull UUID id, @NotNull @Valid EvidenceType evidence) {
-        evidenceService.updateById(id, evidence);
+    public ResponseEntity<Void> updateById(@NotNull UUID id, @NotNull @Valid System system) {
+        systemService.updateById(id, system);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @Override
     public ResponseEntity<Void> deleteById(@NotNull UUID id) {
-        evidenceService.deleteById(id);
+        systemService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

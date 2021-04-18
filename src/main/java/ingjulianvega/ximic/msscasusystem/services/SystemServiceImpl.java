@@ -29,7 +29,7 @@ public class SystemServiceImpl implements SystemService {
         log.debug("get()...");
         return SystemList
                 .builder()
-                .genderList(systemMapper.systemEntityListToSystemDtoList(systemRepository.findAll()))
+                .systemList(systemMapper.systemEntityListToSystemDtoList(systemRepository.findAll()))
                 .build();
     }
 

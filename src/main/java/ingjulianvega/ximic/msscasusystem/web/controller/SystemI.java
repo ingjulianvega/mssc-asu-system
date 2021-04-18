@@ -1,6 +1,7 @@
 package ingjulianvega.ximic.msscasusystem.web.controller;
 
 
+import ingjulianvega.ximic.msscasusystem.web.model.ApiError;
 import ingjulianvega.ximic.msscasusystem.web.model.System;
 import ingjulianvega.ximic.msscasusystem.web.model.SystemDto;
 import ingjulianvega.ximic.msscasusystem.web.model.SystemList;

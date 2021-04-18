@@ -3,8 +3,9 @@ package ingjulianvega.ximic.msscasusystem.exception;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ingjulianvega.ximic.msscasuevidencetype.configuration.EvidenceTypeParameters;
-import ingjulianvega.ximic.msscasuevidencetype.web.model.ApiError;
+
+import ingjulianvega.ximic.msscasusystem.configuration.SystemParameters;
+import ingjulianvega.ximic.msscasusystem.web.model.ApiError;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -34,7 +35,7 @@ public class ErrorMessageResolver {
 
     private final ObjectMapper mapper;
 
-    private final EvidenceTypeParameters evidenceTypeParameters;
+    private final SystemParameters systemParameters;
 
 
     public ApiError resolveApiException(final String response) {
@@ -62,13 +63,13 @@ public class ErrorMessageResolver {
             return getApiGenericError();
         }
         final String[] errorArr = property.split("\\|");
-        return ApiError.builder().code(evidenceTypeParameters.getPrefix() + errorArr[0]).description(errorArr[1]).build();
+        return ApiError.builder().code(systemParameters.getPrefix() + errorArr[0]).description(errorArr[1]).build();
     }
 
     private ApiError getApiGenericError() {
         final String message = "UNKNOWN ERROR";
         return ApiError.builder()
-                .code(evidenceTypeParameters.getPrefix() + "500:199")
+                .code(systemParameters.getPrefix() + "500:199")
                 .description(message)
                 .build();
     }

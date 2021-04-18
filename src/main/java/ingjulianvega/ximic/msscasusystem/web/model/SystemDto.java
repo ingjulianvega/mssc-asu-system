@@ -14,11 +14,9 @@ import java.util.UUID;
 @Builder
 public class SystemDto implements Serializable {
 
-    static final long serialVersionUID = -6199280945876709076L;
+    static final long serialVersionUID = -5758448973072836916L;
 
     private UUID id;
-    private UUID patientId;
     private String name;
-    private String observations;
 
 }

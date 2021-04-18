@@ -16,5 +16,5 @@ public class SystemList implements Serializable {
 
     static final long serialVersionUID = -8780904245399201053L;
 
-    public ArrayList<SystemDto> genderList;
+    public ArrayList<SystemDto> systemList;
 }
