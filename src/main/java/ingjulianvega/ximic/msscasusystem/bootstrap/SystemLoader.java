@@ -23,16 +23,13 @@ public class SystemLoader implements CommandLineRunner {
 
     private void loadEvidenceTypeObjects() {
         systemRepository.saveAll(Arrays.asList(
-                SystemEntity.builder().name("Personal").build(),
-                SystemEntity.builder().name("Familiar").build(),
-                SystemEntity.builder().name("Quirúrgico").build(),
-                SystemEntity.builder().name("Tóxico").build(),
-                SystemEntity.builder().name("Alérgico").build(),
-                SystemEntity.builder().name("Deportivo").build(),
-                SystemEntity.builder().name("Ocupacional").build(),
-                SystemEntity.builder().name("Ginecológico").build(),
-                SystemEntity.builder().name("Traumático").build(),
-                SystemEntity.builder().name("Inmuológico").build(),
+                SystemEntity.builder().name("Nervioso").build(),
+                SystemEntity.builder().name("Respiratorio").build(),
+                SystemEntity.builder().name("Digestivo").build(),
+                SystemEntity.builder().name("Urinario").build(),
+                SystemEntity.builder().name("Genital").build(),
+                SystemEntity.builder().name("Endocrino").build(),
+                SystemEntity.builder().name("Osteomuscular").build(),
                 SystemEntity.builder().name("Otro").build()
         ));
     }

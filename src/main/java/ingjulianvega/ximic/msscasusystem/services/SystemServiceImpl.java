@@ -23,17 +23,17 @@ public class SystemServiceImpl implements SystemService {
     private final SystemRepository systemRepository;
     private final SystemMapper systemMapper;
 
-    @Cacheable(cacheNames = "evidenceTypeListCache")
+    @Cacheable(cacheNames = "systemListCache")
     @Override
     public SystemList get() {
         log.debug("get()...");
         return SystemList
                 .builder()
-                .systemList(systemMapper.systemEntityListToSystemDtoList(systemRepository.findAll()))
+                .systemList(systemMapper.systemEntityListToSystemDtoList(systemRepository.findAllByOrderByName()))
                 .build();
     }
 
-    @Cacheable(cacheNames = "evidenceTypeCache")
+    @Cacheable(cacheNames = "systemCache")
     @Override
     public SystemDto getById(UUID id) {
         log.debug("getById()...");
