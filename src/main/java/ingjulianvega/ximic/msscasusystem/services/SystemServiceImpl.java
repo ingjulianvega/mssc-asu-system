@@ -23,9 +23,9 @@ public class SystemServiceImpl implements SystemService {
     private final SystemRepository systemRepository;
     private final SystemMapper systemMapper;
 
-    @Cacheable(cacheNames = "systemListCache")
+    @Cacheable(cacheNames = "systemListCache", condition = "#usingCache == false")
     @Override
-    public SystemList get() {
+    public SystemList get(Boolean usingCache) {
         log.debug("get()...");
         return SystemList
                 .builder()

@@ -34,7 +34,7 @@ public interface SystemI {
     @RequestMapping(value = "/",
             produces = {"application/json"},
             method = RequestMethod.GET)
-    ResponseEntity<SystemList> get();
+    ResponseEntity<SystemList> get(@Parameter(in = ParameterIn.QUERY, description = "The using of cache", required = true, schema = @Schema()) Boolean usingCache);
 
     @Operation(summary = "Endpoint to get the information of a system given the id", description = "Returns a system", tags = {"system"})
     @ApiResponses(value = {

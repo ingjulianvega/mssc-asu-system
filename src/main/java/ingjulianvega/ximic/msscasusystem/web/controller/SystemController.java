@@ -22,8 +22,8 @@ public class SystemController implements SystemI {
     private final SystemService systemService;
 
     @Override
-    public ResponseEntity<SystemList> get() {
-        return new ResponseEntity<>(systemService.get(), HttpStatus.OK);
+    public ResponseEntity<SystemList> get(Boolean usingCache) {
+        return new ResponseEntity<>(systemService.get(usingCache), HttpStatus.OK);
     }
 
     @Override

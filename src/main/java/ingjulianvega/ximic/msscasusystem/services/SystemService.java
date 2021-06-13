@@ -8,7 +8,7 @@ import ingjulianvega.ximic.msscasusystem.web.model.SystemList;
 import java.util.UUID;
 
 public interface SystemService {
-    SystemList get();
+    SystemList get(Boolean usingCache);
 
     SystemDto getById(UUID id);
 
