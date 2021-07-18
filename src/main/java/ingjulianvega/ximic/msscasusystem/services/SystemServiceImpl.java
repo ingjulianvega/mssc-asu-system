@@ -11,6 +11,7 @@ import ingjulianvega.ximic.msscasusystem.web.model.SystemList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -39,7 +40,14 @@ public class SystemServiceImpl implements SystemService {
         log.debug("getById()...");
         return systemMapper.systemEntityToSystemDto(
                 systemRepository.findById(id)
-                        .orElseThrow(() -> new SystemException(ErrorCodeMessages.SYSTEM_NOT_FOUND, "")));
+                        .orElseThrow(() -> SystemException
+                                .builder()
+                                .httpStatus(HttpStatus.BAD_REQUEST)
+                                .apiCode(ErrorCodeMessages.SYSTEM_NOT_FOUND_API_CODE)
+                                .error(ErrorCodeMessages.SYSTEM_NOT_FOUND_ERROR)
+                                .message(ErrorCodeMessages.SYSTEM_NOT_FOUND_MESSAGE)
+                                .solution(ErrorCodeMessages.SYSTEM_NOT_FOUND_SOLUTION)
+                                .build()));
     }
 
     @Override
@@ -58,7 +66,14 @@ public class SystemServiceImpl implements SystemService {
     public void updateById(UUID id, System system) {
         log.debug("updateById...");
         SystemEntity evidenceEntity = systemRepository.findById(id)
-                .orElseThrow(() -> new SystemException(ErrorCodeMessages.SYSTEM_NOT_FOUND, ""));
+                .orElseThrow(() -> SystemException
+                        .builder()
+                        .httpStatus(HttpStatus.BAD_REQUEST)
+                        .apiCode(ErrorCodeMessages.SYSTEM_NOT_FOUND_API_CODE)
+                        .error(ErrorCodeMessages.SYSTEM_NOT_FOUND_ERROR)
+                        .message(ErrorCodeMessages.SYSTEM_NOT_FOUND_MESSAGE)
+                        .solution(ErrorCodeMessages.SYSTEM_NOT_FOUND_SOLUTION)
+                        .build());
 
         evidenceEntity.setName(system.getName());
 
